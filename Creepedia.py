@@ -70,9 +70,10 @@ print articles
 @app.route('/')
 def stock():
 	return '''  <img src="http://maps.googleapis.com/maps/api/streetview?size=300x300&location=%s&heading=235&sensor=false" /> 
-<iframe src="%s" width="1000px" height="300px" />
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=%s&zoom=17&size=600x300&sensor=false" />
+<iframe src="%s" width="900px" height="300px" />
 		
-		''' % (str(lat)+','+str(lon), articles['url'] )
+		''' % (str(lat)+','+str(lon),str(lat)+','+str(lon), articles['url'] )
 
 if __name__=='__main__':
 	app.run()
