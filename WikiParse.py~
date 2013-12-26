@@ -17,4 +17,4 @@ class WikiParse:
     def parsePicture(self):
         image = bs(str(self.soup.find('a', {'class': 'image'})))
         image = image.findAll('img')[0].get('src')
-        return str(image)
+        return str(image[3:])
