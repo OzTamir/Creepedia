@@ -69,9 +69,10 @@ print articles
 
 @app.route('/')
 def stock():
-	return '''  <img src="http://maps.googleapis.com/maps/api/streetview?size=300x300&location=%s&heading=235&sensor=false" /> 
-		<img src="http://maps.googleapis.com/maps/api/staticmap?center=%s&zoom=17&size=600x300&sensor=false" />
-<iframe src="%s" width="700px" height="300px" />
+	return ''' <center><h1 style="font-family:"Comic Sans MS", cursive, sans-serif;"> Creepedia </h1> <div>
+<div>  <img src="http://maps.googleapis.com/maps/api/streetview?size=300x300&location=%s&heading=235&sensor=false" /> 
+		<img src="http://maps.googleapis.com/maps/api/staticmap?center=%s&zoom=17&size=600x300&sensor=false" /> </div>
+<iframe src="%s" width="900px" height="300px" /></div> </center>
 		
 		''' % (str(lat)+','+str(lon),str(lat)+','+str(lon), articles['url'] )
 
