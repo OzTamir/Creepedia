@@ -14,7 +14,14 @@ class WikiParse:
             return 'TITLE MISSING'
         return str(title)
 
-    def parsePicture(self):
+    def parseImage(self):
         image = bs(str(self.soup.find('a', {'class': 'image'})))
         image = image.findAll('img')[0].get('src')
         return str(image)
+
+class articleParse:
+    def __init__(self, url):
+        self.url = url
+        article = WikiParse(self.url)
+        self.title = article.parseTitle()
+        self.image = article.parseImage()

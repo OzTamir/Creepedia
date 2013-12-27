@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+    <center>
+	<hr>
+	<div>
+        <div>
+            <table>
+                <tbody>
+                    <tr>
+                    {% for article in articles %}
+                        <td><a href="{{ article.url }}">{{ article.title }}</a></td>
+                    {% endfor %}
+                    </tr>
+                    <tr>
+                    {% for article in articles %}
+                           <td><img src="{{ article.image }}" /></td>
+                    {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		<hr>
+		<br><br>
+		<div>
+			<img src="http://maps.googleapis.com/maps/api/streetview?size=300x300&location={{ coord }}&heading=235&sensor=false" />
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ coord }}&zoom=17&size=600x300&sensor=false" />
+		</div>
+		<iframe src="{{ url }}" width="900px" height="300px" />
+	</div>
+	</center>
+  </div>
+{% endblock %}
