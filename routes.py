@@ -16,7 +16,12 @@ def home():
     global filename
     with app.open_resource('static/uploads/' + filename) as img:
         exif = Creepedia.get_exif_data(img)
-        lat, lon = Creepedia.gps_coord(exif)
+        if exif == 'IOERROR':
+            return render_template('error.html')
+        try:
+            lat, lon = Creepedia.gps_coord(exif)
+        except KeyError:
+            return  render_template('error.html')
         coord = str(lat) + ',' + str(lon)
         parsedWiki = Creepedia.articles(lat, lon, 1000, 2, '')
         articles = []

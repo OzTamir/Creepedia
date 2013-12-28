@@ -15,7 +15,7 @@ def get_exif_data(image):
                     decoded = TAGS.get(tag, tag)
                     exiftags[decoded] = value
     except IOError:
-        print 'IOERROR ' + image
+        return 'IOERROR'
     return exiftags
 
 
