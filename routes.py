@@ -16,6 +16,7 @@ def home():
     global filename
     with app.open_resource('static/uploads/' + filename) as img:
         exif = Creepedia.get_exif_data(img)
+	os.remove('static/uploads/' + filename)
         if exif == 'IOERROR':
             return render_template('error.html')
         try:

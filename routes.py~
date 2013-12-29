@@ -21,7 +21,7 @@ def home():
         try:
             lat, lon = Creepedia.gps_coord(exif)
         except KeyError:
-            return  render_template('error.html')
+            return  render_template('GPSerror.html')
         coord = str(lat) + ',' + str(lon)
         parsedWiki = Creepedia.articles(lat, lon, 1000, 2, '')
         articles = []
