@@ -47,4 +47,9 @@ def upload_file():
             return redirect(url_for('home'))
     return render_template('upload.html')
 if __name__ == '__main__':
+<<<<<<< HEAD
     app.run(debug = True)
+=======
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+>>>>>>> b8558ad62d98b84612d3689102b69241ea709026
